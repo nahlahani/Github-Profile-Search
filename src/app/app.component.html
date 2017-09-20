@@ -1,0 +1,100 @@
+<div class="container ">
+  <div class="col-md-9 center">
+    
+        <form>
+            <input class="form-control" type="text" 
+            placeholder="Enter A Github Username" aria-label="Search"
+            [(ngModel)]= "username"
+            name="username"
+            (keyup)="search()">
+          </form>
+   
+     
+
+        <div *ngIf="user">
+          <div class="profile">
+            
+            <div class="row col-md-12">
+                <div class="card">
+                    
+              <div class="card-header">
+                {{user.name}}
+                </div>
+        
+                <div class="card-body">
+                  <div class="pic col-md-4">
+                    <img [src]="user.avatar_url" alt="Avatar_Pic" class="img-thumbnail">
+                    <button type="button" class="btn btn-outline-secondary"  (click)="gotoProfile()">View Profile</button>
+                  </div>
+        
+                  <div class="userInfo col-md-8">
+                    <div class="stats">
+                      <span class="badge badge-primary">{{user.public_repos}} Public Repos</span> 
+                      <span class="badge badge-success">{{user.public_gists}} Public Gists</span> 
+                      <span class="badge badge-dark">{{user.followers}} Followers</span>
+                      <span class="badge badge-dark">{{user.following}} Following</span> 
+                    </div>
+                      <ul class="list-group">
+                          <li class="list-group-item ">
+                            <b>Username:</b> {{user.login}}
+                          </li>
+                          <li class="list-group-item ">
+                           <b>Location:</b> {{user.location}}
+                          </li>
+                          <li class="list-group-item">
+                            <b>Email:</b> {{user.email}}
+                          </li>
+                          <li class="list-group-item ">
+                            <b>Blog:</b> {{user.blog}}
+                          </li>
+                          <li class="list-group-item ">
+                            <b>Member Since:</b> {{user.created_at | date: 'fullDate'}}
+                          </li>
+                      </ul>
+                  </div>
+        
+                </div>
+            </div>
+                 
+              </div>
+            
+              <div class="row col-md-12">
+                  <div class="card repoCard ">
+                      <div class="card-header">
+                            Repos
+                      </div>
+                      <div *ngFor="let repo of repos">
+                      <div class="card-body repoInfo">
+                
+                          <div class="col-md-10">
+                            <a href="{{repo.html_url}}" ><b>{{repo.name}}</b></a>
+                            <p>{{repo.description}}</p>   
+                          </div> 
+                            
+                          <div class="info">
+                            <span class="badge badge-primary">{{repo.watchers}} Watchers</span> 
+                            <span class="badge badge-success">{{repo.forks}} forks</span>
+                          </div>
+                      </div>
+                      <hr>
+                    </div>
+                  </div>
+              </div>
+             
+            
+            
+            
+            </div>
+                     
+                    
+              
+            
+            
+            
+          
+        </div>
+  </div>
+  
+</div>
+    
+        

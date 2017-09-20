@@ -1,0 +1,19 @@
+.center {
+    left: 0;
+    right: 0;
+    margin: auto;  
+    margin-top:20px;
+  }
+ 
+  .card-body {
+    display: inline-flex;
+  }
+.card {
+  margin-top: 10px;
+}
+.pic button {
+  margin-top: 10px;
+  cursor: pointer;
+ 
+}
+
